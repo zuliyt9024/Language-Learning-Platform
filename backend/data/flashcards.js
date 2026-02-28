@@ -1,0 +1,16 @@
+export const flashcards = [
+  { id: 'f1', front: 'Hola', back: 'Hello' },
+  { id: 'f2', front: 'Gracias', back: 'Thank you' },
+  { id: 'f3', front: 'Por favor', back: 'Please' },
+  { id: 'f4', front: 'Adiós', back: 'Goodbye' },
+  { id: 'f5', front: 'Buenos días', back: 'Good morning' },
+  { id: 'f6', front: 'Buenas noches', back: 'Good night' },
+  { id: 'f7', front: 'Uno', back: 'One' },
+  { id: 'f8', front: 'Cinco', back: 'Five' },
+  { id: 'f9', front: 'Diez', back: 'Ten' },
+  { id: 'f10', front: 'Tener', back: 'To have' },
+  { id: 'f11', front: 'Ir', back: 'To go' },
+  { id: 'f12', front: 'La cuenta', back: 'The check' },
+  { id: 'f13', front: '¿Dónde está?', back: 'Where is?' },
+  { id: 'f14', front: 'No entiendo', back: "I don't understand" },
+]

@@ -1,0 +1,66 @@
+// Same URL format as frontend - working Unsplash direct URLs
+const U = (id, w = 600) =>
+  `https://images.unsplash.com/photo-${id}?w=${w}&q=80`
+
+export const lessons = [
+  {
+    id: '1',
+    title: 'Greetings and Basics',
+    description: 'Learn hello, goodbye, please, and thank you in Spanish.',
+    category: 'Vocabulary',
+    level: 'Beginner',
+    imageUrl: U('1546410531-bb4caa6b424d', 600),
+    content: `# Greetings and Basics\n\n- **Hola** = Hello\n- **Adiós** = Goodbye\n- **Por favor** = Please\n- **Gracias** = Thank you\n- **Buenos días** = Good morning\n- **Buenas noches** = Good night\n\nPractice these every day to build confidence!`,
+    cultureNotes: 'In Spain and Latin America, people often kiss on the cheek (one or two) when greeting friends. In formal settings, a handshake is preferred.',
+  },
+  {
+    id: '2',
+    title: 'Numbers 1–20',
+    description: 'Count from one to twenty in Spanish.',
+    category: 'Vocabulary',
+    level: 'Beginner',
+    imageUrl: U('1522202176988-66273c2fd55f', 600),
+    content: `# Numbers 1–20\n\n1 uno, 2 dos, 3 tres, 4 cuatro, 5 cinco\n6 seis, 7 siete, 8 ocho, 9 nueve, 10 diez\n11 once, 12 doce, 13 trece, 14 catorce, 15 quince\n16 dieciséis, 17 diecisiete, 18 dieciocho, 19 diecinueve, 20 veinte`,
+    cultureNotes: 'Numbers are used for telling time (e.g. Son las tres = It\'s 3 o\'clock), prices, and ages. In many Spanish-speaking countries, the 24-hour clock is common for schedules.',
+  },
+  {
+    id: '3',
+    title: 'Common Verbs',
+    description: 'Essential verbs: to be, to have, to go, to do.',
+    category: 'Grammar',
+    level: 'Beginner',
+    imageUrl: U('1516979187457-637ebb4acd56', 600),
+    content: `# Common Verbs\n\n- **ser/estar** = to be\n- **tener** = to have\n- **ir** = to go\n- **hacer** = to do/make\n- **querer** = to want\n- **poder** = can/to be able to\n\nThese verbs are used in almost every sentence.`,
+    cultureNotes: 'Spanish has two verbs for "to be": ser (identity, origin) and estar (location, temporary state). Getting them right is a big step toward sounding natural.',
+  },
+  {
+    id: '4',
+    title: 'At the Restaurant',
+    description: 'Order food and drinks with confidence.',
+    category: 'Conversation',
+    level: 'Intermediate',
+    imageUrl: U('1414237427421-fb899b27e651', 600),
+    content: `# At the Restaurant\n\n- **La cuenta, por favor** = The check, please\n- **Quisiera...** = I would like...\n- **¿Qué me recomienda?** = What do you recommend?\n- **Estoy listo para ordenar** = I'm ready to order`,
+    cultureNotes: 'In Spain, tipping is smaller than in the US; rounding up or 5–10% is common. In Mexico and parts of Latin America, 10–15% is typical. Always check the bill—some places include servicio.',
+  },
+  {
+    id: '5',
+    title: 'Travel Phrases',
+    description: 'Essential phrases for traveling in Spanish-speaking countries.',
+    category: 'Conversation',
+    level: 'Intermediate',
+    imageUrl: U('1488646959014-31a70036c25b', 600),
+    content: `# Travel Phrases\n\n- **¿Dónde está...?** = Where is...?\n- **Necesito un taxi** = I need a taxi\n- **¿Cuánto cuesta?** = How much does it cost?\n- **No entiendo** = I don't understand`,
+    cultureNotes: 'In many Spanish-speaking countries, bargaining at markets is normal. A friendly "¿Me hace un mejor precio?" (Can you give me a better price?) is acceptable in informal settings.',
+  },
+  {
+    id: '6',
+    title: 'Idioms and Expressions',
+    description: 'Sound more natural with common Spanish idioms.',
+    category: 'Idioms',
+    level: 'Advanced',
+    imageUrl: U('1434030216411-0b793f4b4173', 600),
+    content: `# Idioms\n\n- **Estar en las nubes** = To be daydreaming\n- **Costar un ojo de la cara** = To cost an arm and a leg\n- **No hay mal que por bien no venga** = Every cloud has a silver lining`,
+    cultureNotes: 'Idioms vary by region. In Argentina you might hear "estar en el horno" (to be in the oven = in trouble). Learning local expressions helps you connect with native speakers.',
+  },
+]
