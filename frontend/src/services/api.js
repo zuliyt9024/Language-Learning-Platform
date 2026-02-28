@@ -1,45 +1,56 @@
-import axios from 'axios'
+import axios from "axios"
 
-// In dev, use relative /api so Vite proxy forwards to backend; otherwise use env or default
-const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '/api' : 'http://localhost:3000/api')
+// ✅ Backend URL (Render production)
+const PROD_API = "https://language-learning-platform-ikc9.onrender.com/api"
+
+// ✅ In development use Vite proxy (/api)
+// ✅ In production use Render backend
+const API_BASE_URL = import.meta.env.DEV ? "/api" : PROD_API
 
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
   timeout: 15000,
 })
 
+// ✅ Attach token automatically
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token")
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
   }
   return config
 })
 
+// ✅ Handle errors globally
 api.interceptors.response.use(
-  (res) => res,
-  (err) => {
-    if (err.response?.status === 401) {
-      localStorage.removeItem('token')
-      localStorage.removeItem('language-learning-user')
-      window.dispatchEvent(new CustomEvent('auth:logout'))
-      if (!window.location.pathname.startsWith('/login')) {
-        window.location.href = '/login?expired=1'
+  (response) => response,
+  (error) => {
+    // 🔐 Auto logout on 401
+    if (error.response?.status === 401) {
+      localStorage.removeItem("token")
+      localStorage.removeItem("language-learning-user")
+      window.dispatchEvent(new CustomEvent("auth:logout"))
+
+      if (!window.location.pathname.startsWith("/login")) {
+        window.location.href = "/login?expired=1"
       }
-      return Promise.reject(err)
     }
-    const message = err.response?.data?.message || err.response?.data?.error
-    if (message && typeof message === 'string') {
-      err.userMessage = message
-    } else if (err.code === 'ECONNABORTED' || err.message === 'Network Error') {
-      err.userMessage = "We couldn't connect. Please check your internet and try again."
+
+    // 🌐 Friendly error messages
+    if (error.code === "ECONNABORTED" || error.message === "Network Error") {
+      error.userMessage =
+        "We couldn't connect to the server. Please try again."
     } else {
-      err.userMessage = 'Something went wrong. Please try again.'
+      error.userMessage =
+        error.response?.data?.message ||
+        error.response?.data?.error ||
+        "Something went wrong. Please try again."
     }
-    return Promise.reject(err)
+
+    return Promise.reject(error)
   }
 )
 
